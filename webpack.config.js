@@ -1,9 +1,10 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const isDev = process.env.NODE_ENV !== 'production';
 
 const config = {
-    mode:  'development' ,
+    mode: isDev ? 'development' : 'production',
     entry: './src/app.ts',
     output: {
         path: path.resolve(__dirname, 'dist'),
@@ -36,7 +37,7 @@ const config = {
         hot: true
     },
     optimization: {
-        minimize: false
+        minimize: !isDev
       }
 };
 
