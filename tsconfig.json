@@ -1,0 +1,15 @@
+{
+    "include": [
+        "./src/*.ts",
+        "jest.config.js",
+        "setupJest.js"
+    ],
+    "compilerOptions": {
+        "target": "es5",
+        "module": "commonjs",
+        "removeComments": true,
+        "noUnusedLocals": false,
+        "noUnusedParameters": true,
+        "strictPropertyInitialization": false
+    }
+}
