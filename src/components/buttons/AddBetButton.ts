@@ -35,7 +35,7 @@ export class AddBetButton {
     let offsetX = 0;
 
     for (let i = 0; i < 5; i++) {
-      const chip = PIXI.Sprite.from("img/chip.png");
+      const chip = PIXI.Sprite.from("assets/img/chip.png");
       const chipAmount: PIXI.Text = new PIXI.Text(
         `${chipAmounts[i]}`,
         new PIXI.TextStyle({

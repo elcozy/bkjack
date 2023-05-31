@@ -7,7 +7,7 @@ export class CardSprites {
   public isCardVisible: boolean;
 
   constructor(cardName: string, isVisible: boolean = true) {
-    const baseTexture = PIXI.BaseTexture.from("img/cards.png");
+    const baseTexture = PIXI.BaseTexture.from("assets/img/cards.png");
     this.isCardVisible = isVisible;
 
     const backTexture = new PIXI.Texture(

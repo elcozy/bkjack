@@ -94,6 +94,7 @@ export class GameScene extends PIXI.Container {
   public startNewGame() {
     this.curCardIndx = 0;
     Model.placeBet();
+    this.updateSelectedBet()
     this.updateBalanceMeter();
     this.showStartButton(false);
     this.showuserDealerTextCount();
@@ -333,6 +334,7 @@ export class GameScene extends PIXI.Container {
         duration: 0.4,
         delay: i * 0.4,
       });
+
       gsap.to(userCard, {
         x: this.cardXCoordinate + i * this.cardSpacing,
         y: this.playerCardYCoordinate,

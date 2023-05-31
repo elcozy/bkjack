@@ -29,7 +29,7 @@ export class BetScene extends PIXI.Container {
       "DEAL",
       this.handleDealButtonClick.bind(this)
     );
-    const background = PIXI.Sprite.from("img/bg-table.jpg");
+    const background = PIXI.Sprite.from("assets/img/bg-table.jpg");
     this.createChips();
 
     this.betAmount = new PIXI.Text(
@@ -69,12 +69,14 @@ export class BetScene extends PIXI.Container {
     const initialChip = this.chipsContainer.children[3] as PIXI.Sprite;
     initialChip.emit("pointerdown");
   }
+  
   updateBetAmt() {
     const hideDealBtn = Model.curBet === 0;
     this.dealButton.visible = !hideDealBtn;
 
     this.betAmount.text = `BET: € ${Model.curBet}`;
   }
+
   updateBal() {
     this.balance.text = `BANK: € ${Model.balance - Model.curBet}`;
   }
@@ -87,7 +89,7 @@ export class BetScene extends PIXI.Container {
     let offsetX = 0;
 
     for (let i = 0; i < 5; i++) {
-      const chip = PIXI.Sprite.from("img/chip.png");
+      const chip = PIXI.Sprite.from("assets/img/chip.png");
       const chipAmount: PIXI.Text = new PIXI.Text(
         `${chipAmounts[i]}`,
         new PIXI.TextStyle({
@@ -112,7 +114,7 @@ export class BetScene extends PIXI.Container {
         this.updateBal();
 
         // Create a new chip sprite as a copy of the clicked chip
-        const newChip = PIXI.Sprite.from("img/chip.png");
+        const newChip = PIXI.Sprite.from("assets/img/chip.png");
         newChip.width = chip.width;
         newChip.height = chip.height;
         newChip.tint = chip.tint;

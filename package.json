@@ -3,8 +3,8 @@
     "version": "1.0",
     "description": "Blackjack game using TypeScript, Pixi",
     "scripts": {
-      "build": "cross-env NODE_ENV=production webpack",
-      "serve": "webpack-dev-server --open",
+        "start": "webpack-dev-server --open",
+        "build": "cross-env NODE_ENV=production webpack",
         "test": "jest",
         "test:watch": "npm run test -- --coverage --watchAll",
         "prettify": "prettier --write \"src/**/*.ts\" \"src/**/*.js\""

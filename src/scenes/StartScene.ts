@@ -31,7 +31,7 @@ export class StartScene extends PIXI.Container {
       this.handleStartButtonClick.bind(this)
     );
 
-    this.bJackLogo = PIXI.Sprite.from("img/bjack-logo.png");
+    this.bJackLogo = PIXI.Sprite.from("assets/img/bjack-logo.png");
     this.bJackLogo.scale.set(0.7);
     this.bJackLogo.anchor.set(0.5);
 

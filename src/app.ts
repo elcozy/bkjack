@@ -49,7 +49,7 @@ window.onload = () => {
   Model.betScene = new BetScene();
   Model.gameScene = new GameScene();
 
-  const background = PIXI.Sprite.from("img/bg-table.jpg");
+  const background = PIXI.Sprite.from("assets/img/bg-table.jpg");
   Model.gameStage.addChild(background);
 
   // Set initial scene

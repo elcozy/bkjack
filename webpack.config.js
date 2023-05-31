@@ -26,14 +26,13 @@ const config = {
         new CleanWebpackPlugin(),
         new CopyPlugin([
             { from: 'index.html' },
-            { from: 'src/assets/css', to: 'css/' },
-            { from: 'src/assets/images', to: 'img/' },
+            { from: 'src/assets', to: 'assets/' },
         ]),
     ],
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 8080,
+        port: 8000,
         hot: true
     },
     optimization: {
