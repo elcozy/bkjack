@@ -1,12 +1,16 @@
-import { ResetButton } from "./../components/buttons/ResetButton";
-import { StartButton } from "../components/buttons/StartButton";
+import * as PIXI from "pixi.js";
 import { ScoreBoard } from "../components/ScoreBoard";
 import { CardDeck } from "../components/cards/cardDeck";
-import * as PIXI from "pixi.js";
 import { Card } from "../components/cards/Card";
-import { SharedButton } from "../components/buttons/SharedButton";
 import { Model } from "../Model";
-import { BetPlusButton, HitButton, StandButton } from "../components/buttons";
+import {
+    SharedButton,
+    StartButton,
+    AddBetButton,
+    HitButton,
+    StandButton,
+    ResetButton,
+} from "../components/buttons";
 import { gsap } from "gsap";
 
 export class GameScene extends PIXI.Container {
@@ -39,8 +43,6 @@ export class GameScene extends PIXI.Container {
     private curCardIndx: number = 0;
     private betText: PIXI.Text;
     private balanceDisplay: PIXI.Text;
-    private sharingCard: boolean;
-    private initShared: boolean;
 
     constructor() {
         super();
@@ -121,7 +123,7 @@ export class GameScene extends PIXI.Container {
         const hitBtn = new HitButton(this);
         this.hitButton = hitBtn.hitBtn;
 
-        const betPlusBtn = new BetPlusButton(this);
+        const betPlusBtn = new AddBetButton(this);
         this.betPlusButton = betPlusBtn.chipsContainer;
     }
 
