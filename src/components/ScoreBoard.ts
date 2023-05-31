@@ -5,7 +5,7 @@ export class ScoreBoard extends PIXI.Container {
   private button: PIXI.Sprite;
   private buttonText: PIXI.Text;
   private onClick: () => void;
-  private defaultTexture = PIXI.Texture.from("assets/assets/img/bg-btn.png");
+  private defaultTexture = PIXI.Texture.from("assets/img/bg-btn.png");
   private defaultTextStyle = new PIXI.TextStyle({
     fontFamily: "Chakra Petch",
     fontSize: 60,

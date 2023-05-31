@@ -73,4 +73,9 @@ export class Model {
     requestAnimationFrame(this.runGameLoop.bind(this));
     this.app.render(this.gameStage);
   }
+
+  static reset(){
+    this.balance = 1000;
+    this.curBet = 0;
+  }
 }

@@ -9,6 +9,7 @@ export class BetScene extends PIXI.Container {
   private betAmount: PIXI.Text;
   private balance: PIXI.Text;
   private gameInitiated: boolean = false;
+private chosenChipsContainer: PIXI.Container;
 
   constructor() {
     super();
@@ -61,6 +62,7 @@ export class BetScene extends PIXI.Container {
     this.addChild(
       background,
       this.chipsContainer,
+      this.chosenChipsContainer,
       this.betAmount,
       this.balance,
       this.dealButton
@@ -69,7 +71,7 @@ export class BetScene extends PIXI.Container {
     const initialChip = this.chipsContainer.children[3] as PIXI.Sprite;
     initialChip.emit("pointerdown");
   }
-  
+
   updateBetAmt() {
     const hideDealBtn = Model.curBet === 0;
     this.dealButton.visible = !hideDealBtn;
@@ -81,8 +83,16 @@ export class BetScene extends PIXI.Container {
     this.balance.text = `BANK: € ${Model.balance - Model.curBet}`;
   }
 
+  reset(){
+    this.updateBal()
+    this.updateBetAmt()
+    this.chosenChipsContainer.removeChildren()
+    this.gameInitiated = false
+  }
+
   private createChips() {
     this.chipsContainer = new PIXI.Container();
+    this.chosenChipsContainer = new PIXI.Container();
     const chipColors = [0xff9900, 0x00ff00, 0x0000ff, 0xffff00, 0xff00ff];
     const chipAmounts = [1, 2, 5, 10, 20];
 
@@ -113,14 +123,14 @@ export class BetScene extends PIXI.Container {
         this.updateBetAmt();
         this.updateBal();
 
-        // Create a new chip sprite as a copy of the clicked chip
+        // Creating a new chip sprite as a copy of the clicked chip
         const newChip = PIXI.Sprite.from("assets/img/chip.png");
         newChip.width = chip.width;
         newChip.height = chip.height;
         newChip.tint = chip.tint;
         newChip.anchor.set(0.5);
         newChip.position.set(
-          450 + 4 * this.chipsContainer.children.length,
+          450 + 4 * this.chosenChipsContainer.children.length,
           chip.y + 156
         );
 
@@ -138,10 +148,10 @@ export class BetScene extends PIXI.Container {
           Model.curBet -= parseFloat(newChipAmount.text);
           this.updateBetAmt();
           this.updateBal();
-          this.chipsContainer.removeChild(newChip);
+          this.chosenChipsContainer.removeChild(newChip);
         });
 
-        this.chipsContainer.addChild(newChip);
+        this.chosenChipsContainer.addChild(newChip);
       });
 
       chip.width = 150;

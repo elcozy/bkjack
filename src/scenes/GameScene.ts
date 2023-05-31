@@ -1,3 +1,4 @@
+import { ResetButton } from './../components/buttons/ResetButton';
 import { StartButton } from "../components/buttons/StartButton";
 import { ScoreBoard } from "../components/ScoreBoard";
 import { CardDeck } from "../components/cards/cardDeck";
@@ -28,6 +29,8 @@ export class GameScene extends PIXI.Container {
   private cardSpacing: number = 80;
 
   public startButton: SharedButton;
+  public resetButton: SharedButton;
+
   public standButton: SharedButton;
   public hitButton: SharedButton;
   public betPlusButton: PIXI.Container;
@@ -105,10 +108,16 @@ export class GameScene extends PIXI.Container {
   private createButtons() {
     const startBtn = new StartButton(this);
     this.startButton = startBtn.startBtn;
+
+    const resetBtn = new ResetButton(this);
+    this.resetButton = resetBtn.resetBtn;
+
     const standBtn = new StandButton(this);
     this.standButton = standBtn.standBtn;
+
     const hitBtn = new HitButton(this);
     this.hitButton = hitBtn.hitBtn;
+
     const betPlusBtn = new BetPlusButton(this);
     this.betPlusButton = betPlusBtn.chipsContainer;
   }
@@ -289,6 +298,9 @@ export class GameScene extends PIXI.Container {
   public showStartButton(active: boolean = true) {
     this.startButton.visible = active;
     this.startButton.interactive = active;
+
+    this.resetButton.visible = active;
+    this.resetButton.interactive = active;
   }
 
   public shareCards() {
